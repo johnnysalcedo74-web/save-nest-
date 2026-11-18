@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#193654">
+    <meta name="description" content="SaveNest - Track your savings, organize your goals, and build better saving habits.">
+    <title>SaveNest - Small steps. Bigger tomorrow.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- AUTHENTICATION -->
+    <div id="authPage" class="auth-layout">
+
+        <aside class="auth-sidebar">
+            <div class="brand">
+                <span class="brand-icon">🐷</span>
+                <div>
+                    <h2>SaveNest</h2>
+                    <p>Small steps. Bigger tomorrow.</p>
+                </div>
+            </div>
+
+            <nav>
+                <button type="button" id="registerNav" class="auth-nav active">Create Account</button>
+                <button type="button" id="loginNav" class="auth-nav">Log In</button>
+            </nav>
+
+            <div class="auth-footer">
+                SaveNest Demo<br>
+                Your savings, organized in one place.
+            </div>
+        </aside>
+
+        <main class="auth-main">
+            <section class="auth-form-panel">
+
+                <div id="registerBox">
+                    <div class="auth-heading">
+                        <h1>Create your account</h1>
+                        <p>Start building better saving habits today.</p>
+                    </div>
+
+                    <form id="registerForm">
+                        <label class="auth-input">
+                            <span>👤</span>
+                            <input type="text" id="registerName" placeholder="Full name" required minlength="2" autocomplete="name">
+                        </label>
+
+                        <label class="auth-input">
+                            <span>✉</span>
+                            <input type="email" id="registerEmail" placeholder="Email address" required autocomplete="email">
+                        </label>
+
+                        <label class="auth-input">
+                            <span>🔒</span>
+                            <input type="password" id="registerPassword" placeholder="Password (at least 8 characters)" required minlength="8" autocomplete="new-password">
+                            <button class="password-toggle" type="button" data-target="registerPassword">Show</button>
+                        </label>
+
+                        <label class="auth-input">
+                            <span>🔒</span>
+                            <input type="password" id="confirmPassword" placeholder="Confirm password" required autocomplete="new-password">
+                            <button class="password-toggle" type="button" data-target="confirmPassword">Show</button>
+                        </label>
+
+                        <button class="primary-button" type="submit">Create Account</button>
+                    </form>
+
+                    <div class="or-divider"><span></span>OR<span></span></div>
+
+                    <button type="button" class="google-button" id="googleRegister">
+                        <span class="google-letter">G</span> Continue with Google
+                    </button>
+
+                    <p class="switch-text">
+                        Already have an account?
+                        <button type="button" class="link-button" id="goToLogin">Log in</button>
+                    </p>
+                </div>
+
+                <div id="loginBox" class="hidden">
+                    <div class="auth-heading">
+                        <h1>Welcome back!</h1>
+                        <p>Log in to continue managing your savings.</p>
+                    </div>
+
+                    <form id="loginForm">
+                        <label class="auth-input">
+                            <span>✉</span>
+                            <input type="email" id="loginEmail" placeholder="Email address" required autocomplete="email">
+                        </label>
+
+                        <label class="auth-input">
+                            <span>🔒</span>
+                            <input type="password" id="loginPassword" placeholder="Password" required autocomplete="current-password">
+                            <button class="password-toggle" type="button" data-target="loginPassword">Show</button>
+                        </label>
+
+                        <div class="forgot-row">
+                            <button type="button" class="link-button" id="forgotPassword">Forgot password?</button>
+                        </div>
+
+                        <button class="primary-button" type="submit">Log In</button>
+                    </form>
+
+                    <div class="or-divider"><span></span>OR<span></span></div>
+
+                    <button type="button" class="google-button" id="googleLogin">
+                        <span class="google-letter">G</span> Continue with Google
+                    </button>
+
+                    <p class="switch-text">
+                        Don't have an account?
+                        <button type="button" class="link-button" id="goToRegister">Create account</button>
+                    </p>
+                </div>
+
+                <div id="authMessage" class="message" aria-live="polite"></div>
+            </section>
+
+            <section class="auth-hero">
+                <h2>Small savings today.<br>A brighter tomorrow.</h2>
+                <p>Keep track of your money, set goals, and make every little step count.</p>
+
+                <div class="auth-illustration">
+                    <span class="illustration-plant">🌱</span>
+                    <span class="illustration-jar">🐷</span>
+                    <span class="illustration-coins">🪙 🪙</span>
+                </div>
+
+                <p class="hero-caption">Your journey to better saving starts here.</p>
+            </section>
+        </main>
+    </div>
+
+    <!-- MAIN DASHBOARD -->
+    <div id="dashboardPage" class="dashboard-layout hidden">
+
+        <aside class="dashboard-sidebar">
+            <div class="dashboard-brand">
+                <span>🐷</span>
+                <strong>SaveNest</strong>
+            </div>
+
+            <nav class="dashboard-nav">
+                <button type="button" class="side-link active" data-section="dashboard">
+                    <span>⌂</span> Dashboard
+                </button>
+
+                <button type="button" class="side-link" data-section="addSavings">
+                    <span>＋</span> Add Savings
+                </button>
+
+                <button type="button" class="side-link" data-section="adjustSavings">
+                    <span>⚙</span> Adjust Savings
+                </button>
+
+                <button type="button" class="side-link" data-section="history">
+                    <span>☷</span> History
+                </button>
+
+                <button type="button" class="side-link" data-section="goals">
+                    <span>◎</span> Savings Goals
+                </button>
+
+                <button type="button" class="side-link" data-section="settings">
+                    <span>⚙</span> Settings
+                </button>
+            </nav>
+
+            <button type="button" class="logout-button" id="logoutButton">↪ Log Out</button>
+        </aside>
+
+        <button type="button" id="sidebarOverlay" class="sidebar-overlay" aria-label="Close navigation"></button>
+
+        <main class="dashboard-main">
+            <header class="topbar">
+                <button type="button" class="menu-toggle" id="menuToggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+
+                <div class="topbar-user">
+                    <span id="topbarName">User</span>
+                    <span class="avatar">👤</span>
+                </div>
+            </header>
+
+            <!-- DASHBOARD SECTION -->
+            <section id="dashboardSection" class="dashboard-section">
+                <div class="welcome-heading">
+                    <h1>Welcome, <span id="welcomeName">User</span>!</h1>
+                    <p>Here's an overview of your savings.</p>
+                </div>
+
+                <div class="summary-grid">
+                    <article class="summary-card">
+                        <div class="summary-icon green">₱</div>
+                        <div class="summary-card-content">
+                            <p>Current Balance</p>
+                            <h2 id="balanceValue">₱0.00</h2>
+                            <button type="button" id="clearBalanceButton" class="clear-balance-button">Clear Balance</button>
+                        </div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="summary-icon mint">↗</div>
+                        <div class="summary-card-content">
+                            <p>Total Saved</p>
+                            <h2 id="totalSavedValue">₱0.00</h2>
+                        </div>
+                    </article>
+
+                    <article class="summary-card">
+                        <div class="summary-icon purple">◎</div>
+                        <div class="summary-card-content">
+                            <p>First Goal Target</p>
+                            <h2 id="goalValue">₱20,000.00</h2>
+                            <div class="progress-track">
+                                <div id="goalProgress" class="progress-fill"></div>
+                            </div>
+                            <small id="goalPercent">0% completed</small>
+                        </div>
+                    </article>
+                </div>
+
+                <article class="panel overview-panel">
+                    <div class="panel-heading">
+                        <h3>Savings Overview</h3>
+                        <select id="chartPeriod">
+                            <option value="weekly">Weekly</option>
+                            <option value="monthly">Monthly</option>
+                            <option value="yearly">Yearly</option>
+                        </select>
+                    </div>
+
+                    <p class="panel-description">Track how much you have added to your savings over time.</p>
+                    <div id="savingsChart" class="savings-chart"></div>
+                </article>
+            </section>
+
+            <!-- ADD SAVINGS SECTION -->
+            <section id="addSavingsSection" class="dashboard-section hidden">
+                <div class="welcome-heading">
+                    <h1>Add Savings</h1>
+                    <p>Add money to one of your savings goals.</p>
+                </div>
+
+                <div class="panel form-page-panel">
+                    <div class="form-page-icon">💰</div>
+                    <h3>Record New Savings</h3>
+                    <p class="panel-description">Choose a goal and enter the amount you want to save.</p>
+
+                    <form id="savingsForm">
+                        <div class="goal-selector-group">
+                            <label for="savingsGoalSelect">Select Savings Goal</label>
+                            <select id="savingsGoalSelect" required></select>
+                        </div>
+
+                        <label for="savingsAmount">Amount to Save</label>
+                        <div class="amount-input">
+                            <span>₱</span>
+                            <input type="number" id="savingsAmount" min="0.01" step="0.01" placeholder="0.00" required>
+                        </div>
+
+                        <div class="quick-amounts">
+                            <button type="button" data-amount="100">₱100</button>
+                            <button type="button" data-amount="500">₱500</button>
+                            <button type="button" data-amount="1000">₱1,000</button>
+                            <button type="button" data-amount="5000">₱5,000</button>
+                        </div>
+
+                        <button type="submit" class="primary-button">Add to Savings</button>
+                    </form>
+
+                    <div id="savingsMessage" class="message" aria-live="polite"></div>
+                    <div class="tip-box">💡 Every small amount counts. Keep saving to reach your goals!</div>
+                </div>
+            </section>
+
+            <!-- ADJUST SAVINGS SECTION -->
+            <section id="adjustSavingsSection" class="dashboard-section hidden">
+                <div class="welcome-heading">
+                    <h1>Adjust Savings</h1>
+                    <p>Add or deduct an amount from a selected savings goal.</p>
+                </div>
+
+                <div class="panel form-page-panel">
+                    <div class="form-page-icon">⚙️</div>
+                    <h3>Adjust Your Savings</h3>
+
+                    <p class="panel-description">Current Balance</p>
+                    <div id="adjustAvailableBalance">₱0.00</div>
+
+                    <form id="adjustSavingsForm">
+                        <div class="goal-selector-group">
+                            <label for="adjustGoalSelect">Select Savings Goal</label>
+                            <select id="adjustGoalSelect" required></select>
+                        </div>
+
+                        <label for="adjustType">Adjustment Type</label>
+                        <select id="adjustType" required>
+                            <option value="add">Add Savings</option>
+                            <option value="deduct">Deduct Savings</option>
+                        </select>
+
+                        <label for="adjustAmount">Amount</label>
+                        <div class="amount-input">
+                            <span>₱</span>
+                            <input type="number" id="adjustAmount" min="0.01" step="0.01" placeholder="0.00" required>
+                        </div>
+
+                        <label for="adjustReason">Reason <span class="optional-label">(Optional)</span></label>
+                        <input type="text" id="adjustReason" placeholder="Enter reason (optional)">
+
+                        <button type="submit" class="primary-button">Save Adjustment</button>
+                    </form>
+
+                    <div id="adjustMessage" class="message" aria-live="polite"></div>
+                </div>
+            </section>
+
+            <!-- HISTORY SECTION -->
+            <section id="historySection" class="dashboard-section hidden">
+                <div class="welcome-heading">
+                    <h1>Savings History</h1>
+                    <p>Review your savings activities and adjustments.</p>
+                </div>
+
+                <div class="panel table-panel">
+                    <div class="transactions-heading">
+                        <h3>All Activities</h3>
+
+                        <div class="history-actions">
+                            <button type="button" id="downloadPdfButton" class="export-history-button">Download PDF</button>
+                            <button type="button" id="clearHistoryButton" class="clear-history-button">Clear History</button>
+                        </div>
+                    </div>
+
+                    <div id="allHistory" class="activity-list"></div>
+                    <div id="historyMessage" class="message" aria-live="polite"></div>
+                </div>
+            </section>
+
+            <!-- GOALS SECTION -->
+            <section id="goalsSection" class="dashboard-section hidden">
+                <div class="welcome-heading">
+                    <h1>Savings Goals</h1>
+                    <p>Create goals and transfer savings between your existing goals.</p>
+                </div>
+
+                <div class="panel form-page-panel">
+                    <div class="form-page-icon">🎯</div>
+                    <h3>Create a New Goal</h3>
+
+                    <form id="goalForm">
+                        <label for="goalNameInput">
+                            Goal Name
+                            <input type="text" id="goalNameInput" maxlength="60" placeholder="e.g. New Laptop" required>
+                        </label>
+
+                        <label for="goalAmountInput">
+                            Target Amount
+                            <input type="number" id="goalAmountInput" min="0.01" step="0.01" placeholder="Enter target amount" required>
+                        </label>
+
+                        <button type="submit" class="primary-button">Create Savings Goal</button>
+                    </form>
+
+                    <div id="goalMessage" class="message" aria-live="polite"></div>
+                </div>
+
+                <!-- TRANSFER SAVINGS -->
+                <div class="transfer-panel">
+                    <div class="transfer-heading">
+                        <div class="form-page-icon">⇄</div>
+                        <div>
+                            <h3>Transfer Savings</h3>
+                            <p>Move any amount from one of your savings goals to another.</p>
+                        </div>
+                    </div>
+
+                    <form id="transferSavingsForm" class="transfer-form">
+                        <label for="transferFromGoal">
+                            From (Source Goal)
+                            <select id="transferFromGoal" required></select>
+                        </label>
+
+                        <div class="transfer-arrow">↓</div>
+
+                        <label for="transferToGoal">
+                            To (Destination Goal)
+                            <select id="transferToGoal" required></select>
+                        </label>
+
+                        <label for="transferAmount">
+                            Amount to Transfer
+                            <div class="amount-input">
+                                <span>₱</span>
+                                <input type="number" id="transferAmount" min="0.01" step="0.01" placeholder="Enter amount to transfer" required>
+                            </div>
+                        </label>
+
+                        <div id="transferSourceInfo" class="transfer-info">
+                            Select a source goal to see its available savings.
+                        </div>
+
+                        <button type="submit" id="transferSubmitButton" class="primary-button">Transfer Savings</button>
+                    </form>
+
+                    <div id="transferMessage" class="message" aria-live="polite"></div>
+                </div>
+
+                <div id="goalsList" class="goals-list"></div>
+            </section>
+
+            <!-- SETTINGS SECTION -->
+            <section id="settingsSection" class="dashboard-section hidden">
+                <div class="welcome-heading">
+                    <h1>Settings</h1>
+                    <p>Manage your account information.</p>
+                </div>
+
+                <div class="panel settings-panel">
+                    <h3>Profile Information</h3>
+
+                    <form id="profileForm">
+                        <label for="profileName">
+                            Full Name
+                            <input type="text" id="profileName" required minlength="2">
+                        </label>
+
+                        <label for="profileEmail">
+                            Email Address
+                            <input type="email" id="profileEmail" disabled>
+                        </label>
+
+                        <button type="submit" class="primary-button">Save Changes</button>
+                    </form>
+
+                    <div id="profileMessage" class="message" aria-live="polite"></div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
